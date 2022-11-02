@@ -18,13 +18,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class SellerProfileActivity extends AppCompatActivity {
-    TextView buyer,name,email,type,upi;
+    TextView name,email,type,upi;
     BottomNavigationView bnv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seller_profile);
-        buyer = findViewById(R.id.Buyer);
         name = findViewById(R.id.Sname);
         email = findViewById(R.id.Semail);
         type = findViewById(R.id.Stype);
@@ -32,13 +31,6 @@ public class SellerProfileActivity extends AppCompatActivity {
         FirebaseDatabase database;
         DatabaseReference databaseReference;
         bnv = findViewById(R.id.bottomnav);
-        buyer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SellerProfileActivity.this, homePage.class);
-                startActivity(intent);
-            }
-        });
         database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference("Sellers");
         name.setText(CurrentSeller.currentSeller.getName());

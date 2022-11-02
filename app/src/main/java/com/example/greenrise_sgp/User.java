@@ -15,13 +15,6 @@ public class User {
         this.confpass = confpass;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getEmail() {
         return email;
@@ -53,5 +46,13 @@ public class User {
 
     public void setConfpass(String confpass) {
         this.confpass = confpass;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

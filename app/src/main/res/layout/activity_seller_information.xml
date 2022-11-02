@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".profileFragment">
+    tools:context=".SellerInformationActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -37,7 +37,7 @@
                 />
 
             <TextView
-                android:id="@+id/Uname"
+                android:id="@+id/Sellname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="User Name"
@@ -55,80 +55,60 @@
             android:padding="10dp">
 
             <Button
-                android:id="@+id/Uorders"
+                android:id="@+id/Sorders"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#77EC79"
                 android:drawableRight="@drawable/orders"
+                android:drawableTint="@color/green"
                 android:gravity="center_vertical"
                 android:text="My Orders"
                 android:textColor="@color/green" />
 
             <Button
-                android:id="@+id/Uwish"
+                android:id="@+id/SInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/Uorders"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="#77EC79"
-                android:drawableRight="@drawable/wishh"
-                android:gravity="center_vertical"
-                android:text="My WishList"
-                android:textColor="@color/green" />
-
-            <Button
-                android:id="@+id/UInfo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/Uwish"
+                android:layout_below="@id/Sorders"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="#77EC79"
                 android:drawableRight="@drawable/useri"
+                android:drawableTint="@color/green"
                 android:gravity="center_vertical"
                 android:text="Personal Info"
                 android:textColor="@color/green" />
 
             <Button
-                android:id="@+id/Usts"
+                android:id="@+id/Sstb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/UInfo"
+                android:layout_below="@id/SInfo"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="#77EC79"
-                android:drawableRight="@drawable/sellers"
+                android:drawableRight="@drawable/buyer"
+                android:drawableTint="@color/green"
                 android:gravity="center_vertical"
-                android:text="Switch To Seller"
+                android:text="Switch To Buyer"
                 android:textColor="@color/green" />
 
             <Button
-                android:id="@+id/Ulog"
+                android:id="@+id/Slog"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/Usts"
+                android:layout_below="@id/Sstb"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="#77EC79"
                 android:drawableRight="@drawable/log"
+                android:drawableTint="@color/green"
                 android:gravity="center_vertical"
                 android:text="Log Out"
                 android:textColor="@color/green" />
 
-            <Button
-                android:id="@+id/Ulogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/Ulog"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="#77EC79"
-                android:drawableRight="@drawable/log"
-                android:gravity="center_vertical"
-                android:text="Log In"
-                android:textColor="@color/green" />
-
             <TextView
-                android:id="@+id/Quote"
+                android:id="@+id/SQuote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/Ulog"
+                android:layout_below="@id/Slog"
                 android:layout_marginTop="69dp"
                 android:gravity="center"
                 android:text="From little seeds grow mighty trees :)"
@@ -137,5 +117,13 @@
                 android:textStyle="bold" />
 
         </RelativeLayout>
-    </RelativeLayout>
-</FrameLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomnav"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            app:itemIconTint="@drawable/selector"
+            app:itemTextColor="@drawable/selector"
+            app:menu="@menu/bottomnav" />
+</RelativeLayout>
+</RelativeLayout>

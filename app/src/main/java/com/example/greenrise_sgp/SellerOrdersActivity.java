@@ -34,7 +34,7 @@ public class SellerOrdersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_seller_orders);
         recyclerView = findViewById(R.id.recyclerViewOrder);
         recyclerView.setHasFixedSize(true);
-        databaseReference = FirebaseDatabase.getInstance().getReference("Cart");
+        databaseReference = FirebaseDatabase.getInstance().getReference("Orders");
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         bnv = findViewById(R.id.bottomnav);
         bnv.setSelectedItemId(R.id.carti);
@@ -48,7 +48,7 @@ public class SellerOrdersActivity extends AppCompatActivity {
                         startActivity(intent);
                         return true;
                     case R.id.profilei:
-                        Intent intent1 = new Intent(SellerOrdersActivity.this,SellerProfileActivity.class);
+                        Intent intent1 = new Intent(SellerOrdersActivity.this,SellerInformationActivity.class);
                         startActivity(intent1);
                         return true;
                     case R.id.carti:

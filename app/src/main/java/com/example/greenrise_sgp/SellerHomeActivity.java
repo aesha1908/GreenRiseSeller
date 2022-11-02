@@ -79,7 +79,7 @@ public class SellerHomeActivity extends AppCompatActivity {
                     case R.id.homei:
                         return true;
                     case R.id.profilei:
-                        Intent intent1 = new Intent(SellerHomeActivity.this,SellerProfileActivity.class);
+                        Intent intent1 = new Intent(SellerHomeActivity.this,SellerInformationActivity.class);
                         startActivity(intent1);
                         return true;
                     case R.id.carti:

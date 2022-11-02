@@ -53,6 +53,12 @@ public class UserLoginActivity extends AppCompatActivity {
         reg = findViewById(R.id.Userregtv);
         mAuth = FirebaseAuth.getInstance();
         forpass = findViewById(R.id.Userforgotpass);
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        if(user != null)
+//        {
+//            Intent intent = new Intent(UserLoginActivity.this,homePage.class);
+//            startActivity(intent);
+//        }
         forpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,6 +133,7 @@ public class UserLoginActivity extends AppCompatActivity {
     }
 
     private void authenticate_user() {
+
         progressDialog.setTitle("Login...");
         progressDialog.setMessage("Wait while we authenticate...");
         progressDialog.setCanceledOnTouchOutside(false);
@@ -143,17 +150,18 @@ public class UserLoginActivity extends AppCompatActivity {
             pass_login.setError("Password is required!");
         }
         else{
+
             mAuth.signInWithEmailAndPassword(email, pass)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                FirebaseDatabase.getInstance().getReference("Sellers")
+                                FirebaseDatabase.getInstance().getReference("Users")
                                         .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                         .addListenerForSingleValueEvent(new ValueEventListener() {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                CurrentSeller.currentSeller = snapshot.getValue(Seller.class);
+                                                CurrentUser.currentUser = snapshot.getValue(User.class);
                                                 Intent intent = new Intent(UserLoginActivity.this, homePage.class);
                                                 startActivity(intent);
                                             }

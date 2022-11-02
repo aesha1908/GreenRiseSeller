@@ -67,28 +67,16 @@
         android:textSize="25dp" />
 
     <TextView
-        android:id="@+id/Buyer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/UPI"
-        android:layout_marginTop="150dp"
-        android:gravity="center"
-        android:text="Switch to buyer"
-        android:textColor="@color/black"
-        android:textSize="35dp"
-        android:textStyle="bold" />
-
-    <TextView
         android:id="@+id/plantquote"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/UPI"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="25dp"
         android:fontFamily="serif"
         android:gravity="center"
         android:text="Plants make people happy."
         android:textColor="#655B5B"
-        android:layout_below="@id/Buyer"
         android:textSize="20dp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="128dp" />

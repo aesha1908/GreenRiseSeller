@@ -98,7 +98,7 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.myViewHolder
         @SuppressLint("SimpleDateFormat")
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference reference = firebaseDatabase.getReference("Plants");
+        DatabaseReference reference = firebaseDatabase.getReference("Plant");
         Plant plant = list.get(position);
         holder.namev.setText(plant.getName());
         holder.aboutv.setText(plant.getAbout());
