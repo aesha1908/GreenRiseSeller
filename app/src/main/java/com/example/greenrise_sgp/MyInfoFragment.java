@@ -15,8 +15,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MyInfoFragment extends Fragment {
 
     TextView name,email,phone;
-    FirebaseDatabase database;
-    DatabaseReference reference;
+
+
     public MyInfoFragment() {
         // Required empty public constructor
     }
@@ -29,9 +29,12 @@ public class MyInfoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        FirebaseDatabase database;
+        DatabaseReference reference;
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my_info, container, false);
-        name = view.findViewById(R.id.UserName);
+        name = view.findViewById(R.id.Username);
         email = view.findViewById(R.id.Email);
         phone = view.findViewById(R.id.Contact);
         database = FirebaseDatabase.getInstance();

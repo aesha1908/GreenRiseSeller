@@ -40,6 +40,7 @@ public class PlantListActivity extends AppCompatActivity {
     PlantAdapter adapter;
     DatabaseReference reference;
     BottomNavigationView bnv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,10 +48,14 @@ public class PlantListActivity extends AppCompatActivity {
         bnv = findViewById(R.id.bottomnav);
         recyclerView = findViewById(R.id.plantlist);
         recyclerView.setHasFixedSize(true);
-        reference = FirebaseDatabase.getInstance().getReference("Plants");
+        reference = FirebaseDatabase.getInstance().getReference("Plant");
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<>();
-        adapter = new PlantAdapter(this, list);
+        FirebaseRecyclerOptions<Plant> options =
+                new FirebaseRecyclerOptions.Builder<Plant>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Plant"),Plant.class)
+                        .build();
+        adapter = new PlantAdapter(options);
         recyclerView.setAdapter(adapter);
         reference.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
@@ -76,6 +81,7 @@ public class PlantListActivity extends AppCompatActivity {
 
             }
         });
+
         bnv.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -98,5 +104,14 @@ public class PlantListActivity extends AppCompatActivity {
             }
         });
 }
-
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
 }

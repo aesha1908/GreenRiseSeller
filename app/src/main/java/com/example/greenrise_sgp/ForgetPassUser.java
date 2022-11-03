@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -15,16 +14,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class ForgetPass extends AppCompatActivity {
+public class ForgetPassUser extends AppCompatActivity {
     EditText email;
     Button forbtn;
     FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forget_pass);
-        email = findViewById(R.id.Email);
-        forbtn = findViewById(R.id.passbtn);
+        setContentView(R.layout.activity_forget_pass_user);
+        email = findViewById(R.id.FPEmail);
+        forbtn = findViewById(R.id.FPpassbtn);
         mAuth = FirebaseAuth.getInstance();
         forbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,7 +31,6 @@ public class ForgetPass extends AppCompatActivity {
                 resetpass();
             }
         });
-        
     }
 
     private void resetpass() {
@@ -48,10 +46,10 @@ public class ForgetPass extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(ForgetPass.this, "Please check your email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPassUser.this, "Please check your email", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(ForgetPass.this, "Try another email!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ForgetPassUser.this, "Try another email!", Toast.LENGTH_SHORT).show();
                 }
             }
         });

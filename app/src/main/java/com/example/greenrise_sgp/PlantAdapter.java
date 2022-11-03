@@ -3,6 +3,7 @@ package com.example.greenrise_sgp;
 import android.annotation.SuppressLint;
 import android.app.DownloadManager;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,43 +70,31 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Queue;
 
-public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.myViewHolder> {
-    ArrayList<Plant> list;
-    Context context;
-    DatabaseReference databaseReference;
+public class PlantAdapter extends FirebaseRecyclerAdapter<Plant,PlantAdapter.myViewHolder> {
 
-    public PlantAdapter(Context context, ArrayList<Plant> list){
-        this.context = context;
-        this.list = list;
-
+    public PlantAdapter(@NonNull FirebaseRecyclerOptions<Plant> options) {
+        super(options);
     }
 
-    public PlantAdapter(DatabaseReference databaseReference) {
-        this.databaseReference = databaseReference;
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-    }
 
     @NonNull
     @Override
     public PlantAdapter.myViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.plantentry,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.plantentry,parent,false);
         return new myViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlantAdapter.myViewHolder holder, int position) {
-        // String key = databaseReference.child("Plants").push().getKey();
+    protected void onBindViewHolder(@NonNull myViewHolder holder, int position, @NonNull Plant model) {
         @SuppressLint("SimpleDateFormat")
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm");
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference reference = firebaseDatabase.getReference("Plant");
-        Plant plant = list.get(position);
-        holder.namev.setText(plant.getName());
-        holder.aboutv.setText(plant.getAbout());
-        holder.pricev.setText(String.valueOf(plant.getPrice()));
-        holder.quantv.setText(String.valueOf(plant.getQuantity()));
-        Glide.with(context).load(plant.getImage()).into(holder.imagev);
-        //Integer pos = FirebaseDatabase.getInstance().getReference().getRef().getKey();
+        holder.namev.setText(model.getName());
+        holder.aboutv.setText(model.getAbout());
+        holder.pricev.setText(String.valueOf(model.getPrice()));
+        holder.quantv.setText(String.valueOf(model.getQuantity()));
+        Glide.with(holder.imagev.getContext()).load(model.getImage()).into(holder.imagev);
         holder.updatebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -122,10 +111,10 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.myViewHolder
                 EditText etquantity = v.findViewById(R.id.upquantity);
                 Button up = v.findViewById(R.id.update);
 
-                etname.setText(plant.getName());
-                etabout.setText(plant.getAbout());
-                etprice.setText(String.valueOf(plant.getPrice()));
-                etquantity.setText(String.valueOf(plant.getQuantity()));
+                etname.setText(model.getName());
+                etabout.setText(model.getAbout());
+                etprice.setText(String.valueOf(model.getPrice()));
+                etquantity.setText(String.valueOf(model.getQuantity()));
                 dialogPlus.show();
 
                 up.setOnClickListener(new View.OnClickListener() {
@@ -137,32 +126,18 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.myViewHolder
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 for(DataSnapshot dataSnapshot: snapshot.getChildren())
                                 {
-                                    if(dataSnapshot.child("key").getValue().toString().equals(plant.getKey()))
+                                    if(dataSnapshot.child("key").getValue().toString().equals(model.getKey()))
                                     {
-                                       // String path = dataSnapshot.getKey();
+                                        // String path = dataSnapshot.getKey();
 //                                        DatabaseReference reference = dataSnapshot.getRef();
-                                        Map<String,Object> map = new HashMap<>();
+                                        HashMap map = new HashMap();
                                         map.put("name",etname.getText().toString());
                                         map.put("about",etabout.getText().toString());
                                         map.put("price",etprice.getText().toString());
                                         map.put("quantity",etquantity.getText().toString());
-                                        reference.child(dataSnapshot.child("key").getValue().toString()).updateChildren(map).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                try{
-                                                    Toast.makeText(holder.namev.getContext(), "Done", Toast.LENGTH_SHORT).show();
-                                                    dialogPlus.dismiss();
-                                                }
-                                                catch(DatabaseException e){
-                                                    //Log the exception and the key
-                                                    dataSnapshot.getKey();
-                                                }
-
-                                            }
-                                        });
+                                        reference.child(dataSnapshot.child("key").getValue().toString()).updateChildren(map);
+                                        dialogPlus.dismiss();
                                     }
-
-
                                 }
                             }
 
@@ -185,7 +160,7 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.myViewHolder
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for(DataSnapshot dataSnapshot : snapshot.getChildren())
                         {
-                            if(dataSnapshot.child("key").getValue().toString().equals(plant.getKey()))
+                            if(dataSnapshot.child("key").getValue().toString().equals(model.getKey()))
                             {
                                 reference.child(dataSnapshot.child("key").getValue().toString()).removeValue()
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -214,10 +189,6 @@ public class PlantAdapter extends RecyclerView.Adapter<PlantAdapter.myViewHolder
         });
     }
 
-    @Override
-    public int getItemCount() {
-        return list.size();
-    }
 
     public class myViewHolder extends RecyclerView.ViewHolder {
         TextView namev,aboutv,pricev,quantv;

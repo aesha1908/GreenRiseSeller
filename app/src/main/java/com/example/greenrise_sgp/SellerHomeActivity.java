@@ -67,7 +67,7 @@ public class SellerHomeActivity extends AppCompatActivity {
         imageView = findViewById(R.id.pimage);
         bnv = findViewById(R.id.bottomnav);
         storageReference = FirebaseStorage.getInstance().getReference("Images");
-        reference = FirebaseDatabase.getInstance().getReference("Plants");
+        reference = FirebaseDatabase.getInstance().getReference("Plant");
         progressDialog = new ProgressDialog(SellerHomeActivity.this);
         progressDialog.setCanceledOnTouchOutside(false);
         bnv.setSelectedItemId(R.id.homei);
@@ -107,8 +107,8 @@ public class SellerHomeActivity extends AppCompatActivity {
                     //String key = reference.child("Plants").push().getKey();
                     String Name = name.getText().toString().trim();
                     String About = about.getText().toString().trim();
-                    Integer Price = Integer.parseInt(price.getText().toString().trim());
-                    Integer Quantity = Integer.parseInt(quantity.getText().toString().trim());
+                    String Price = price.getText().toString().trim();
+                    String Quantity = quantity.getText().toString().trim();
 
                     if(Name.isEmpty() || About.isEmpty()){
                         Toast.makeText(SellerHomeActivity.this, "All the fields are required", Toast.LENGTH_LONG).show();

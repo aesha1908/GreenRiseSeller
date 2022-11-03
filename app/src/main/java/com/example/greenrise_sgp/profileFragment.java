@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 
 public class profileFragment extends Fragment {
-    Button switchtoseller,orderuser,wishlistuser,infouser,logout,login;
+    Button switchtoseller,orderuser,wishlistuser,infouser,logout;
     TextView name;
     ImageView uimage;
 
@@ -36,7 +37,6 @@ public class profileFragment extends Fragment {
         logout = view.findViewById(R.id.Ulog);
         name = view.findViewById(R.id.Uname);
         uimage = view.findViewById(R.id.imageView);
-        login = view.findViewById(R.id.Ulogin);
         FirebaseDatabase firebaseDatabase;
         DatabaseReference databaseReference;
         switchtoseller.setOnClickListener(new View.OnClickListener() {
@@ -56,8 +56,10 @@ public class profileFragment extends Fragment {
         infouser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),MyInfoActivity.class);
-                startActivity(intent);
+                AppCompatActivity activity = (AppCompatActivity)view.getContext();
+                activity.getSupportFragmentManager().beginTransaction().
+                        replace(R.id.frameLayout,new MyInfoFragment()).
+                        addToBackStack(null).commit();
             }
         });
         wishlistuser.setOnClickListener(new View.OnClickListener() {
@@ -71,13 +73,6 @@ public class profileFragment extends Fragment {
         databaseReference = firebaseDatabase.getReference("Users");
         name.setText(CurrentUser.currentUser.getName());
         logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),UserLoginActivity.class);
-                startActivity(intent);
-            }
-        });
-        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(),UserLoginActivity.class);

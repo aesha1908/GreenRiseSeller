@@ -112,18 +112,6 @@
                 android:text="Log Out"
                 android:textColor="@color/green" />
 
-            <Button
-                android:id="@+id/Ulogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/Ulog"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="#77EC79"
-                android:drawableRight="@drawable/log"
-                android:gravity="center_vertical"
-                android:text="Log In"
-                android:textColor="@color/green" />
-
             <TextView
                 android:id="@+id/Quote"
                 android:layout_width="match_parent"

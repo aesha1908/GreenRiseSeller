@@ -19,9 +19,12 @@
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/drawable/phone.xml" value="0.2" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/drawable/selector.xml" value="0.195" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/drawable/sellers.xml" value="0.195" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/drawable/sellertype.xml" value="0.195" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/drawable/upi.xml" value="0.195" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/drawable/useri.xml" value="0.195" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/drawable/wishh.xml" value="0.195" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_forget_pass.xml" value="0.18" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_forget_pass_user.xml" value="0.1716485507246377" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_home_page.xml" value="0.31881371640407785" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_my_info.xml" value="0.1716485507246377" />
@@ -30,11 +33,11 @@
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_otpforegetpass.xml" value="0.1716485507246377" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_plant_list.xml" value="0.17346014492753623" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_plant_list2.xml" value="0.22" />
-        <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_seller_home.xml" value="0.22" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_seller_home.xml" value="0.25" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_seller_information.xml" value="0.25" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_seller_login.xml" value="0.22" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_seller_orders.xml" value="0.21" />
-        <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_seller_profile.xml" value="0.25" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_seller_profile.xml" value="0.22" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_seller_register.xml" value="0.22" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_user_login.xml" value="0.22" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/activity_user_register.xml" value="0.22" />
@@ -44,7 +47,7 @@
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/fragment_checkout.xml" value="0.25" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/fragment_desc_fragmant.xml" value="0.21" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/fragment_home.xml" value="0.25" />
-        <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/fragment_my_info.xml" value="0.22" />
+        <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/fragment_my_info.xml" value="0.25" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/orderentry.xml" value="0.22" />
         <entry key="..\:/Users/dell/AndroidStudioProjects/Greenrise_SGP/app/src/main/res/layout/plant_item.xml" value="0.33" />

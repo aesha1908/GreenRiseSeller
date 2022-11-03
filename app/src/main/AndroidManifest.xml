@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Greenrise_SGP"
         tools:targetApi="31">
         <activity
+            android:name=".ForgetPassUser"
+            android:exported="false" />
+        <activity
             android:name=".MyInfoActivity"
             android:exported="false" />
         <activity

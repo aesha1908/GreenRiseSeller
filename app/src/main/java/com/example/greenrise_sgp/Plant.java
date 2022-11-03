@@ -7,18 +7,17 @@ import java.util.PrimitiveIterator;
 public class Plant implements Serializable {
     private String name;
     private String about;
-    private Integer price;
-    private Integer quantity;
+    private String price;
+    private String quantity;
     private String image;
     private String key;
-
     public Plant(){
 
     }
 
 
 
-    public Plant(String name, String about, Integer price, Integer quantity, String image, String key) {
+    public Plant(String name, String about, String price, String quantity, String image, String key) {
         this.name = name;
         this.about = about;
         this.price = price;
@@ -44,19 +43,19 @@ public class Plant implements Serializable {
         this.about = about;
     }
 
-    public Integer getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
-    public Integer getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 
@@ -76,7 +75,7 @@ public class Plant implements Serializable {
         this.key = key;
     }
 
-//    public Map getTimestamp() {
+    //    public Map getTimestamp() {
 //        return timestamp;
 //    }
 //

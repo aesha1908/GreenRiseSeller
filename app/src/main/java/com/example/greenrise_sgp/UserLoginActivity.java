@@ -62,7 +62,7 @@ public class UserLoginActivity extends AppCompatActivity {
         forpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(UserLoginActivity.this, ForgetPass.class);
+                Intent intent = new Intent(UserLoginActivity.this, ForgetPassUser.class);
                 startActivity(intent);
             }
         });
